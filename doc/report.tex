@@ -1,7 +1,12 @@
 \documentclass[11pt,letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[OT2,T1]{fontenc}
+\usepackage[russian,english]{babel}
 \usepackage{fullpage}
 \usepackage{color}
 \usepackage{url}
+\usepackage{booktabs}
+\newcommand\textcyr[1]{{\fontencoding{OT2}\fontfamily{wncyr}\selectfont #1}}
 \newcommand{\nascomment}[1]{\textcolor{blue}{\textbf{[#1 --NAS]}}}
 
 \title{11-712:  NLP Lab Report}
@@ -21,11 +26,114 @@ Russian is a Slavic language spoken by 155 million persons primarily in Russia a
 
 \section{Past Work on the Morphology of Russian}
 
-\section{Available Resources}
+Work on morphological analysis of Russian is too broad to be accurately surveyed here. In fact, this work dates back to as early as the development of the first machine translation systems in the 60s \cite{nikolaeva}. We restrict ourselves to recent developments of this line of work and to systems related to our project.
 
-\nascomment{include discussion of your corpora}
+Zalizniak's Grammatical Dictionary of Russian \cite{zalizniak}, the first complete machine-readable morphological dictionary if often cited as a reference for defining a set of morphological annotations. Later, the two-level paradigm of Koskenniemi has been used to develop a morphological analyzer, named \texttt{RUSTWOL} \cite{vilkki}. This analyzer was built for transliterated Russian and is not available online. \cite{bilan} present a morphological analyzers for nominals written with xfst.
+
+Recently, several systems have been developed, which were evaluated on gold standard annotations at the morphology task of the 2010 Dialog conference\footnote{\url{http://ru-eval.ru/participants.html}}. Only a few are available for download, including \texttt{mystem} \cite{mystem}, an analyzer based on a dictionary combined with a guesser and now developed by the company Yandex, and \texttt{pymorphy}\footnote{\url{http://pymorphy.readthedocs.org}}, the only open-source analyzer available to our knowledge.
+
+Finally, efforts have been made to develop statistical taggers based on annotated corpora \cite{sharoff2008}, but no generic morphological analyzer is used in this work.
+
+\section{Available Resources}
+Despite its relative unpopularity in the English NLP litterature, several extensive textual ressources are available for Russian. In particular, high-quality dictionaries with morphological annotations can be downloaded freely. The \texttt{aot.ru} website provides such a dictionary, and an improved and extended version of this resource with more than 300k lemmas can be downloaded from the recently created OpenCorpora project\footnote{\url{http://opencorpora.org}}.
+
+In terms of corpora, a few annotated datasets are available. The Russian National corpus provides a 180k-token disambiguated corpus sampled from a larger corpus composed of various genres. The OpenCorpora project aims to duplicate this effort in the open and has collected so far 15k disambiguated analyses. Finally, we can use the 2k words of the Dialog 2010 evaluation corpus\footnote{\url{http://ru-eval.ru/rueval_2010_goldstandard_tagged.txt}} as another reference.
+
+Given the large size of the available corpora, we have to restrict ourselves to a smaller dataset for the purpose of developing our analyzer. Therefore, we select:
+\begin{enumerate}
+    \item The first 1k words of the Dialog 2010 corpus as our corpus A.
+    \item The second half (1k words) as our corpus B.
+    \item The OpenCorpora corpus as our corpus C.
+\end{enumerate}
 
 \section{Survey of Phenomena in Russian}
+
+We first review the main morpho-syntactic categories of the language and then present the grammatical features of each category separately. Note than in practice derivational morphology allows a verb (\textcyr{pisat\cyrsftsn}) to behave like an adjective (participle: \textcyr{pisavshi\u{i}, pisany\u{i}}), which makes these categories non strictly orthogonal in the process of encoding the set of endings using finite-state tools.
+
+Our analysis is based on \cite{timberlake2004}, as well as on the study of previously developed systems for morphological analysis and generation.
+
+\subsection{Part of speech tags}
+Open-class categories are: nouns (N), verbs (V), adjectives (ADJ), adverbs (ADV). Close-class categories are: pronouns (PRO), numerals (NUM), prepositions (PRE) and conjunctions (CONJ).
+
+We list a few equivalences between commonly used tagsets:
+
+\begin{center}
+\begin{tabular}{lllll}
+\toprule
+This work & Mocky & Mystem & ru-eval & Examples \\
+\midrule
+N    & N & S & S & \textcyr{korpus, slovo, ruka, loshad\cyrsftsn}\\
+V    & V & V & V & \textcyr{chitat\cyrsftsn} \\
+ADJ  & A & A & A & \textcyr{bolsho\u{i}, chisty\u{i}} \\
+ADV  & R & ADV, ADVPRO & ADV & \textcyr{bystro, kogda} \\
+\midrule
+PRO  & P & SPRO, APRO & SPRO, APRO & \textcyr{ya, kto, \cyrerev tot, mo\u{i}, tako\u{i}} \\
+NUM  & M & NUM, ANUM & NUM, ANUM & \textcyr{odin, pervy\u{i}} \\
+PRP  & S & PR & PR & \textcyr{s, o, po} \\
+CONJ & C & CONJ & CONJ & \textcyr{i, chto} \\
+   - & Q, I, Y, X & INTJ, PART, COM & X\_COMPLEX \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+% INTJ/I, PART/Q could be ADV (indeclinable)
+
+\subsection{Nominal morphology}
+Nouns belong to one of the three syntactic\footnote{with respect to agreement} genders: masculine (\texttt{m}), neuter (\texttt{n}) and feminine (\texttt{f}).
+
+Most nouns decline (6 cases: \texttt{nom, gen, acc, dat, ins, loc}) and express number (\texttt{sg, pl}). They can be divided in 3 declensions or morphological genders, which correspond broadly to syntactic genders: Ia (masculine; e.g. \textcyr{zavod}), Ib (neuter; e.g. \textcyr{lico}), II (mostly feminine; e.g. \textcyr{zhena}) and III (feminine; e.g. \textcyr{novost\cyrsftsn}).
+
+Russian makes a distinction between animated and inanimated nouns, which is reflected in the declension patterns but which we will not mark in the analysis.
+
+Some complications include: indeclinable nouns, proper nouns, compounds, which we will treat only if time permits.
+
+\subsection{Adjectival morphology}
+Adjectives agree with the noun in gender (3), number (+1) and case (6). One can differentiate between hard stems, most frequent (\textcyr{krasn\textbf{y\u{i}}}, \textcyr{bolsh\textbf{o\u{i}}}) and soft stems (\textcyr{dal\cyrsftsn n\textbf{i\u{i}}}).
+
+Participles follow a similar declension.
+
+Additionaly, there are short form (\texttt{brev}) of adjectives, only in the nominative case, derived from the roots of long forms: \textcyr{krasny\u{i}} $\rightarrow$ \textcyr{krasen}.
+
+Finally, the comparative (\texttt{comp}) is marked as a suffix: \textcyr{krasnee} (but not the superlative).
+
+\subsection{Verbal morphology}
+Verbs exhibit the highest degreee of morphological variety, with about 16 conjugation classes in the traditional Zalizniak classification. However, there are only two main classes divided according to the first letter of the middle\footnote{2p,sg; 3p,sg; 1p,pl; 2p,pl} forms of the present conjugation: \textcyr{i} (as in \textcyr{lyubish\cyrsftsn}) and \textcyr{e} (\textcyr{plachesh\cyrsftsn}).
+
+Most verbs have two forms which indicate aspect (and to a certain measure, tense): imperfective and perfective.
+
+The following forms are available for each aspect:
+\begin{itemize}
+\item infinitive (\texttt{inf}), one form
+\item present/future (\texttt{pres}), 2 numbers (\texttt{sg, pl}) and 3 persons (\texttt{1p, 2p, 3p})
+\item past (\texttt{past}), 3 genders + 1 number
+\item imperative (\texttt{imper}), 2 numbers
+\item participles:
+\begin{itemize}
+    \item Adverbial (\texttt{ger}): present (\textcyr{pisha}) and past (\textcyr{pisav})
+    \item Adjectival (\texttt{partcp}): present active (\textcyr{pishushi\u{i}}) and passive (\textcyr{pisaemy\u{i}}) and past active (\textcyr{pisavshi\u{i}}) and passive (\textcyr{pisany\u{i}}).
+\end{itemize}
+\end{itemize}
+
+Finally, voice can be marked with the reflexive (\texttt{refl}) suffix \textcyr{sya/s\cyrsftsn}.
+
+\subsection{Adverbs}
+Adverbs are by definition invariable, except for a comparative form.
+
+\subsection{Pronouns, numerals}
+Pronoun and numerals have idiosyncratic declensions which need to be modeled independentely.
+
+\subsection{Spelling rules}
+\begin{itemize}
+\item fleeting vowels \textcyr{son/sna, devushka/devushek} (mostly around \textcyr{k, s})
+\item vowels can be soft (\textcyr{ya, e, i, \"e, yu}) or hard (\textcyr{a, \cyrerev, y, o, u}) and certain combinations with consonants are restricted. There are three classes of concerned consonants: velar (\textcyr{g, k, kh}), sibilants (\textcyr{zh, ch, sh, shsh}) and the letter \textcyr{s}.
+\begin{itemize}
+    \item \textcyr{y} $\rightarrow$ \textcyr{i} after velars and sibilants
+    \item \textcyr{u, a} $\rightarrow$ \textcyr{yu, ya} after velars, sibilants and \textcyr{s}
+    \item \textcyr{o} $\rightarrow$ \textcyr{e} after sibilants and \textcyr{s} when unstressed
+    \item \textcyr{-\cyrsftsn/\u{i}/ya} + \textcyr{y} = \textcyr{-i}
+\end{itemize}
+\item \textcyr{e/\"e} are sometimes confused; this may come up while studying real-world corpora
+\end{itemize}
 
 \section{Initial Design}
 
@@ -40,7 +148,7 @@ Russian is a Slavic language spoken by 155 million persons primarily in Russia a
 \section{Future Work}
 
 
-\bibliographystyle{plainnat}
+\bibliographystyle{plain}
 \bibliography{bibliography}
 \label{lastpage}
 \end{document}
