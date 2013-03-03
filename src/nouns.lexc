@@ -5,31 +5,141 @@ Multichar_Symbols
 +sg +pl
 
 LEXICON Root
-завод MascIa;
-лиц NeutIb;
-жен FemII;
-новост FemIII;
+! Ia
+завод        MascIa;
+!автомобил[ь]   MascIa;
+!трамва[й]      MascIa;
+!музе[й]        MascIa;
+!алюмини[й]     MascIa;
+! IIb
+лиц          NeutHardIb;
+письм        NeutHardIb; ! mobile vowel
+мор          NeutSoftIb;
+здани        NeutSoftIb;
+! II
+жен          FemHardII;
+недел        FemSoftII;
+лини         FemSoftII;
+! III
+новост       FemIII;
+тетрад       FemIII;
 
 LEXICON MascIa
 +N+m:0 DeclensionIa;
+! TODO -ь, -й --> DeclensionSoftI
 
-LEXICON NeutIb
-о+N+n:0 DeclensionIb;
+LEXICON NeutHardIb
+о+N+n:0 DeclensionHardIb;
 
-LEXICON FemII
-а+N+f:0 DeclensionII;
+LEXICON NeutSoftIb
+е+N+n:0 DeclensionSoftIb;
+
+LEXICON FemHardII
+а+N+f:0 DeclensionHardII;
+
+LEXICON FemSoftII
+я+N+f:0 DeclensionSoftII;
 
 LEXICON FemIII
 ь+N+f:0 DeclensionIII;
 
 LEXICON DeclensionIa
+! sg
 +nom+sg:^     #;
++acc+sg:^     #; ! inanimate
+DeclensionHardI
+! pl
++nom+pl:^ы    #;
++acc+pl:^ы    #; ! inanimate
++gen+pl:^ов   #;
+DeclensionHardI;
 
-LEXICON DeclensionIb
+LEXICON DeclensionHardIb
+! sg
 +nom+sg:^о    #;
++acc+sg:^о    #;
+! pl
++nom+pl:^а    #;
++acc+pl:^а    #; ! inanimate
++gen+pl:^     #;
+DeclensionHardI;
 
-LEXICON DeclensionII
+LEXICON DeclensionSoftIb
+! sg
++nom+sg:^е    #;
++acc+sg:^е    #;
+! pl
++nom+pl^я     #;
++acc+pl:^я    #; ! inanimate
++gen+pl:^ей   #; ! TODO after vowel ^й
+DeclensionSoftI;
+
+LEXICON DeclensionHardI
+! sg
++gen+sg:^а    #;
++dat+sg:^у    #;
++ins+sg:^ом   #;
++loc+sg:^е    #;
+!pl
++dat+pl:^ам   #;
++ins+pl:^ами  #;
++loc+pl:^ах   #;
+
+LEXICON DeclensionSoftI
+! sg
++gen+sg:^я    #;
++dat+sg:^ю    #;
++ins+sg:^ем   #;
++loc+sg:^е    #;
+!pl
++dat+pl:^ям   #;
++ins+pl:^ями  #;
++loc+pl:^ях   #;
+
+LEXICON DeclensionHardII
+! sg
 +nom+sg:^а    #;
++acc+sg:^у    #;
++gen+sg:^ы    #;
++dat+sg:^е    #;
++ins+sg:^ой   #;
++loc+sg:^е    #;
+!pl
++nom+pl:^ы    #;
++acc+pl:^ы    #; ! inanimate
++gen+pl:^а    #;
++dat+pl:^ам   #;
++ins+pl:^ами  #;
++loc+pl:^ах   #;
+
+LEXICON DeclensionSoftII
+! sg
++nom+sg:^я    #;
++acc+sg:^ю    #;
++gen+sg:^и    #;
++dat+sg:^е    #;
++ins+sg:^ей   #;
++loc+sg:^е    #;
+!pl
++nom+pl:^и    #;
++acc+pl:^и    #; ! inanimate
++gen+pl:^ь    #; ! TODO after и: -ий
++dat+pl:^ям   #;
++ins+pl:^ями  #;
++loc+pl:^ях   #;
 
 LEXICON DeclensionIII
+!sg
 +nom+sg:^ь    #;
++acc+sg:^ь    #;
++gen+sg:^и    #;
++dat+sg:^и    #;
++ins+sg:^ью   #;
++loc+sg:^е    #;
+!pl
++nom+pl:^и    #;
++acc+pl:^и    #; ! inanimate
++gen+pl:^ей   #;
++dat+pl:^ям   #;
++ins+pl:^ями  #;
++loc+pl:^ях   #;
