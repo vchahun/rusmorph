@@ -125,7 +125,7 @@ Pronoun and numerals have idiosyncratic declensions which need to be modeled ind
 \subsection{Spelling rules}
 \begin{itemize}
 \item fleeting vowels \textcyr{son/sna, devushka/devushek} (mostly around \textcyr{k, s})
-\item vowels can be soft (\textcyr{ya, e, i, \"e, yu}) or hard (\textcyr{a, \cyrerev, y, o, u}) and certain combinations with consonants are restricted. There are three classes of concerned consonants: velar (\textcyr{g, k, kh}), sibilants (\textcyr{zh, ch, sh, shsh}) and the letter \textcyr{s}.
+\item vowels can be soft (\textcyr{ya, e, i, \"e, yu}) or hard (\textcyr{a, \cyrerev, y, o, u}) and certain combinations with consonants are restricted. There are three classes of concerned consonants: velar (\textcyr{g, k, kh}), sibilants (\textcyr{zh, ch, sh, shch}) and the letter \textcyr{s}.
 \begin{itemize}
     \item \textcyr{y} $\rightarrow$ \textcyr{i} after velars and sibilants
     \item \textcyr{u, a} $\rightarrow$ \textcyr{yu, ya} after velars, sibilants and \textcyr{s}
@@ -136,6 +136,15 @@ Pronoun and numerals have idiosyncratic declensions which need to be modeled ind
 \end{itemize}
 
 \section{Initial Design}
+
+We will prioritize the first round of development of the analyzer in the following way:
+
+\begin{enumerate}
+  \item We will first quickly enumerate the most frequent words falling in closed-class categories, excluding numerals.
+  \item We will then focus on open-class categories, in the order of decreasing complexity: adverbs, adjectives, nouns, and verbs. For verbs, we will start with the most frequent conjugations, leaving participles aside.
+  \item Then, we will be able to add a guesser which is able to potentially analyze new adverbs, adjectives, nouns and verbs.
+  \item Finally, we will encode the spelling rules described above.
+\end{enumerate}
 
 \section{System Analysis on Corpus A}
 
