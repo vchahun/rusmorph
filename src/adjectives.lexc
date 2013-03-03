@@ -3,26 +3,106 @@ Multichar_Symbols
 +m +f +n
 +sg +pl
 +nom +gen +acc +dat +ins +loc
++comp
++brev ! TODO
 
 LEXICON Root
-красн HardI;
-болш HardO;
-дальн Soft;
+нов         HardY;
+красн       HardY;
+больш       HardO;
+лёгк        HardI;
+дальн       Soft;
+
+LEXICON HardY
+ый+ADJ:0 DeclensionHardY;
 
 LEXICON HardO
 ой+ADJ:0 DeclensionHardO;
 
 LEXICON HardI
-ый+ADJ:0 DeclensionHardI;
+ий+ADJ:0 DeclensionHardI;
 
 LEXICON Soft
 ий+ADJ:0 DeclensionSoft;
 
-LEXICON DeclensionHardI
-+m+nom+sg:^ый  #;
+LEXICON DeclensionHardY
++m+nom+sg:^ый       #;
++m+acc+sg:^ый       #; ! inanimate
+DeclensionHard;
 
 LEXICON DeclensionHardO
-+m+nom+sg:^ой  #;
++m+nom+sg:^ой       #;
++m+acc+sg:^ой       #; ! inanimate
+DeclensionHard;
+
+LEXICON DeclensionHardI
++m+nom+sg:^ий       #;
++m+acc+sg:^ий       #; ! inanimate
+DeclensionHard;
+
+LEXICON DeclensionHard
+! masc,sg
++m+acc+sg:^ого      #; ! animate
++m+gen+sg:^ого      #;
++m+dat+sg:^ому      #;
++m+ins+sg:^ым       #;
++m+loc+sg:^ом       #;
+! fem,sg
++f+nom+sg:^ая       #;
++f+acc+sg:^ую       #;
++f+gen+sg:^ой       #;
++f+dat+sg:^ой       #;
++f+ins+sg:^ой       #;
++f+loc+sg:^ой       #;
+! neut,sg
++n+nom+sg:^ое       #;
++n+acc+sg:^ое       #;
++m+gen+sg:^ого      #;
++m+dat+sg:^ому      #;
++m+ins+sg:^ым       #;
++m+loc+sg:^ом       #;
+! pl
++nom+pl:^ые         #;
++acc+pl:^ые         #; ! inanimate
++acc+pl:^ых         #; ! animate
++gen+pl:^ых         #;
++dat+pl:^ым         #;
++ins+pl:^ыми        #;
++loc+pl:^ых         #;
+Comparative;
 
 LEXICON DeclensionSoft
-+m+nom+sg:^ий  #;
+! masc,sg
++m+nom+sg:^ий       #;
++m+acc+sg:^ий       #; ! inanimate
++m+acc+sg:^его      #; ! animate
++m+gen+sg:^его      #;
++m+dat+sg:^ему      #;
++m+ins+sg:^им       #;
++m+loc+sg:^ем       #;
+! fem,sg
++f+nom+sg:^яя       #;
++f+acc+sg:^юю       #;
++f+gen+sg:^ей       #;
++f+dat+sg:^ей       #;
++f+ins+sg:^ей       #;
++f+loc+sg:^ей       #;
+! neut,sg
++n+nom+sg:^ее       #;
++n+acc+sg:^ее       #;
++m+gen+sg:^его      #;
++m+dat+sg:^ему      #;
++m+ins+sg:^им       #;
++m+loc+sg:^ем       #;
+! pl
++nom+pl:^ие         #;
++acc+pl:^ие         #; ! inanimate
++acc+pl:^их         #; ! animate
++gen+pl:^их         #;
++dat+pl:^им         #;
++ins+pl:^ими        #;
++loc+pl:^их         #;
+Comparative;
+
+LEXICON Comparative
++comp:^ее          #;
