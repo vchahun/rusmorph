@@ -1,0 +1,56 @@
+Multichar_Symbols
++PRP
+
+LEXICON Root
+без       Prep;
+благодаря Prep;
+близ      Prep;
+в         Prep;
+вдоль     Prep;
+вместо    Prep;
+вне       Prep;
+внутри    Prep;
+возле     Prep;
+вокруг    Prep;
+вопреки   Prep;
+для       Prep;
+до        Prep;
+за        Prep;
+из        Prep;
+из-за     Prep;
+из-под    Prep;
+к         Prep;
+ко        Prep;
+кроме     Prep;
+мало      Prep;
+между     Prep;
+мимо      Prep;
+много     Prep;
+на        Prep;
+над       Prep;
+накануне  Prep;
+наперeкор Prep;
+напротив  Prep;
+несколько Prep;
+о         Prep;
+об        Prep;
+около     Prep;
+от        Prep;
+перед     Prep;
+по        Prep;
+под       Prep;
+после     Prep;
+посреди   Prep;
+при       Prep;
+про       Prep;
+против    Prep;
+ради      Prep;
+с         Prep;
+со        Prep;
+согласно  Prep;
+среди     Prep;
+у         Prep;
+через     Prep;
+
+LEXICON Prep
++PRP:0 #;

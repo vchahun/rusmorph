@@ -1,0 +1,9 @@
+Multichar_Symbols
++ADV
+
+LEXICON Root
+быстро Adv;
+всегда Adv;
+
+LEXICON Adv
++ADV:0 #;

@@ -1,0 +1,40 @@
+Multichar_Symbols
++CONJ
+
+LEXICON Root
+а         Conj;
+будто     Conj;
+ведь      Conj;
+всё-таки  Conj;
+где       Conj;
+если      Conj;
+же        Conj;
+и         Conj;
+как       Conj;
+когда     Conj;
+кто       Conj;
+куда      Conj;
+или       Conj;
+ли        Conj;
+нежели    Conj;
+ни        Conj;
+но        Conj;
+пока      Conj;
+поскольку Conj;
+причём    Conj;
+пусть     Conj;
+то        Conj;
+хотя      Conj;
+чем       Conj;
+что       Conj;
+чтоб      Conj;
+чтобы     Conj;
+
+! потому что
+! как будто
+! после того, как
+! так как
+! тогда как
+
+LEXICON Conj
++CONJ:0 #;

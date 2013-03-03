@@ -1,0 +1,24 @@
+Multichar_Symbols
++V
++inf
++pres +past
++imper
++ger +partcp
++refl
+
+LEXICON Root
+чит At;
+
+LEXICON At
+ать+V:0  ConjAt;
+
+LEXICON ConjAt
++inf:^ать   ReflSja;
+
+LEXICON ReflSja
+#;
++refl:^ся         #;
+
+LEXICON ReflSj
+#;
++refl:^сь         #;

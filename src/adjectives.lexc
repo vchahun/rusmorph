@@ -1,0 +1,28 @@
+Multichar_Symbols
++ADJ
++m +f +n
++sg +pl
++nom +gen +acc +dat +ins +loc
+
+LEXICON Root
+красн HardI;
+болш HardO;
+дальн Soft;
+
+LEXICON HardO
+ой+ADJ:0 DeclensionHardO;
+
+LEXICON HardI
+ый+ADJ:0 DeclensionHardI;
+
+LEXICON Soft
+ий+ADJ:0 DeclensionSoft;
+
+LEXICON DeclensionHardI
++m+nom+sg:^ый  #;
+
+LEXICON DeclensionHardO
++m+nom+sg:^ой  #;
+
+LEXICON DeclensionSoft
++m+nom+sg:^ий  #;

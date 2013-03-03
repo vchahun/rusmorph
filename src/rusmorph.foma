@@ -1,0 +1,35 @@
+! Alphabet definition
+define HardVowel а | э | ы | о | у;
+define SoftVowel я | е | и | ё | ю 
+define Vowel HardVowel | SoftVowel | й;
+define Sibilant ж | ч | ш | щ;
+define Velar г | к | х;
+define OtherCons б | в | д | з | л | м | н | п | р | с | т | ф | ц;
+define Cons Sibilant | Velar | OtherCons;
+define Sign ъ | ь;
+define Alphabet Cons | Vowel | Sign;
+
+! Load lexicons
+read lexc prepositions.lexc
+define PrpLexicon
+
+read lexc conjunctions.lexc
+define ConjLexicon
+
+read lexc nouns.lexc
+define NounLexicon
+
+read lexc verbs.lexc
+define VerbLexicon
+
+read lexc adverbs.lexc
+define AdvLexicon
+
+read lexc adjectives.lexc
+define AdjLexicon
+
+! Morpheme boundary
+define Cleanup "^" -> 0;
+
+! Final composition
+regex ((PrpLexicon | ConjLexicon | NounLexicon | VerbLexicon | AdjLexicon | AdvLexicon) .o. Cleanup);

@@ -1,0 +1,35 @@
+Multichar_Symbols
++N
++m +f +n
++nom +gen +acc +dat +ins +loc
++sg +pl
+
+LEXICON Root
+завод MascIa;
+лиц NeutIb;
+жен FemII;
+новост FemIII;
+
+LEXICON MascIa
++N+m:0 DeclensionIa;
+
+LEXICON NeutIb
+о+N+n:0 DeclensionIb;
+
+LEXICON FemII
+а+N+f:0 DeclensionII;
+
+LEXICON FemIII
+ь+N+f:0 DeclensionIII;
+
+LEXICON DeclensionIa
++nom+sg:^     #;
+
+LEXICON DeclensionIb
++nom+sg:^о    #;
+
+LEXICON DeclensionII
++nom+sg:^а    #;
+
+LEXICON DeclensionIII
++nom+sg:^ь    #;
