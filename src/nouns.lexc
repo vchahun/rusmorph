@@ -3,6 +3,7 @@ Multichar_Symbols
 +m +f +n
 +nom +gen +acc +dat +ins +loc
 +sg +pl
+^GuessNoun
 
 LEXICON Root
 ! Ia
@@ -11,18 +12,24 @@ LEXICON Root
 !трамва[й]      MascIa;
 !музе[й]        MascIa;
 !алюмини[й]     MascIa;
+^GuessNoun   MascIa;
 ! IIb
 лиц          NeutHardIb;
 письм        NeutHardIb; ! mobile vowel
+^GuessNoun   NeutHardIb;
 мор          NeutSoftIb;
 здани        NeutSoftIb;
+^GuessNoun   NeutSoftIb;
 ! II
 жен          FemHardII;
+^GuessNoun   FemHardII;
 недел        FemSoftII;
 лини         FemSoftII;
+^GuessNoun   FemSoftII;
 ! III
 новост       FemIII;
 тетрад       FemIII;
+^GuessNoun   FemIII;
 
 LEXICON MascIa
 +N+m:0 DeclensionIa;

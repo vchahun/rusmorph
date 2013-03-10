@@ -1,9 +1,29 @@
 Multichar_Symbols
 +ADV
+^GuessAdverb
 
 LEXICON Root
+! from adjectives
 быстро Adv;
+
+даже   Adv;
 всегда Adv;
+ещё    Adv;
+уже    Adv;
+затем  Adv;
+потом  Adv;
+
+! particles
+да     Adv;
+нет    Adv;
+не     Adv;
+бы     Adv;
+вот    Adv;
+же     Adv;
+и      Adv; ! Он так и делает
+ли     Adv; ! Знаете ли вы
+это    Adv; ! Это не молоко
+^GuessAdverb Adv;
 
 LEXICON Adv
 +ADV:0 #;

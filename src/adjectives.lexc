@@ -5,13 +5,18 @@ Multichar_Symbols
 +nom +gen +acc +dat +ins +loc
 +comp
 +brev ! TODO
+^GuessAdjective
 
 LEXICON Root
 нов         HardY;
 красн       HardY;
+^GuessAdjective HardY;
 больш       HardO;
+^GuessAdjective HardO;
 лёгк        HardI;
+^GuessAdjective HardI;
 дальн       Soft;
+^GuessAdjective Soft; ! TODO restrict -ьн
 
 LEXICON HardY
 ый+ADJ:0 DeclensionHardY;

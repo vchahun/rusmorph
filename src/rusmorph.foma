@@ -16,17 +16,25 @@ define PrpLexicon
 read lexc conjunctions.lexc
 define ConjLexicon
 
+define GuessNoun Alphabet+ Cons ["^GuessedRoot^":0];
 read lexc nouns.lexc
+substitute defined GuessNoun for "^GuessNoun"
 define NounLexicon
 
+define GuessVerb Alphabet+ Cons ["^GuessedRoot^":0];
 read lexc verbs.lexc
+substitute defined GuessVerb for "^GuessVerb"
 define VerbLexicon
 define ReflEnding с я -> с ь || Vowel "^" _;
 
+define GuessAdverb Alphabet+ Cons о ["^GuessedRoot^":0];
 read lexc adverbs.lexc
+substitute defined GuessAdverb for "^GuessAdverb"
 define AdvLexicon
 
+define GuessAdjective Alphabet+ Cons ["^GuessedRoot^":0];
 read lexc adjectives.lexc
+substitute defined GuessAdjective for "^GuessAdjective"
 define AdjLexicon
 
 ! Morpheme boundary

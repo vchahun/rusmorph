@@ -8,13 +8,23 @@ Multichar_Symbols
 +1p +2p +3p
 +m +f +n
 +sg +pl
+^GuessVerb
 
 LEXICON Root
+! I-conjugation
+! 4
 люб It;
 говор It;
+^GuessVerb It;
+! 5
 смотр EtI;
+^GuessVerb EtI;
 молч AtI;
+^GuessVerb AtI; ! TODO restrict -Sibilant
+! E-conjugation
+! 1
 чит AtE;
+^GuessVerb AtE;
 
 LEXICON It
 ить+V:0  ConjIt;
