@@ -5,20 +5,76 @@ Multichar_Symbols
 +imper
 +ger +partcp
 +refl
++1p +2p +3p
++m +f +n
++sg +pl
 
 LEXICON Root
-чит At;
+люб It;
+говор It;
+смотр EtI;
+молч AtI;
+чит AtE;
 
-LEXICON At
-ать+V:0  ConjAt;
+LEXICON It
+ить+V:0  ConjIt;
 
-LEXICON ConjAt
-+inf:^ать   ReflSja;
+LEXICON EtI
+еть+V:0  ConjEtI;
 
-LEXICON ReflSja
+LEXICON AtI
+ать+V:0  ConjAtI;
+
+LEXICON AtE
+ать+V:а  ConjAtE;
+
+LEXICON ConjIt
++inf:^ить          Refl;
++past+m+sg:^ил     Refl;
++past+f+sg:^ила    Refl;
++past+n+sg:^ило    Refl;
++past+pl:^или      Refl;
+ConjI;
+
+LEXICON ConjAtI
++inf:^ать          Refl;
++past+m+sg:^ал     Refl;
++past+f+sg:^ала    Refl;
++past+n+sg:^ало    Refl;
++past+pl:^али      Refl;
+ConjI;
+
+LEXICON ConjEtI
++inf:^еть          Refl;
++past+m+sg:^ел     Refl;
++past+f+sg:^ела    Refl;
++past+n+sg:^ело    Refl;
++past+pl:^ели      Refl;
+ConjI;
+
+LEXICON ConjI
++pres+1p+sg:^ю     Refl;
++pres+2p+sg:^ишь   Refl;
++pres+3p+sg:^ит    Refl;
++pres+1p+pl:^им    Refl;
++pres+2p+pl:^ите   Refl;
++pres+3p+pl:^ят    Refl;
++imp:^и            #;
+
+LEXICON ConjAtE
++inf:^ть           Refl;
++pres+1p+sg:^ю     Refl;
++pres+2p+sg:^ешь   Refl;
++pres+3p+sg:^ет    Refl;
++pres+1p+pl:^ем    Refl;
++pres+2p+pl:^ете   Refl;
++pres+3p+pl:^ют    Refl;
++past+m+sg:^л      Refl;
++past+f+sg:^ла     Refl;
++past+n+sg:^ло     Refl;
++past+pl:^ли       Refl;
++imp:^й            #;
+
+LEXICON Refl
 #;
 +refl:^ся         #;
-
-LEXICON ReflSj
-#;
-+refl:^сь         #;

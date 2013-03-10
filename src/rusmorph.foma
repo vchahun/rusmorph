@@ -1,6 +1,6 @@
 ! Alphabet definition
 define HardVowel а | э | ы | о | у;
-define SoftVowel я | е | и | ё | ю 
+define SoftVowel я | е | и | ё | ю;
 define Vowel HardVowel | SoftVowel | й;
 define Sibilant ж | ч | ш | щ;
 define Velar г | к | х;
@@ -21,6 +21,7 @@ define NounLexicon
 
 read lexc verbs.lexc
 define VerbLexicon
+define ReflEnding с я -> с ь || Vowel "^" _;
 
 read lexc adverbs.lexc
 define AdvLexicon
@@ -32,4 +33,9 @@ define AdjLexicon
 define Cleanup "^" -> 0;
 
 ! Final composition
-regex ((PrpLexicon | ConjLexicon | NounLexicon | VerbLexicon | AdjLexicon | AdvLexicon) .o. Cleanup);
+regex ((PrpLexicon
+        | ConjLexicon
+        | NounLexicon
+        | (VerbLexicon .o. ReflEnding)
+        | AdjLexicon
+        | AdvLexicon) .o. Cleanup);
