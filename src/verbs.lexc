@@ -3,7 +3,7 @@ Multichar_Symbols
 +inf
 +pres +past
 +imper
-+ger +partcp
++ger +partcp ! TODO
 +refl
 +1p +2p +3p
 +m +f +n
@@ -12,19 +12,27 @@ Multichar_Symbols
 
 LEXICON Root
 ! I-conjugation
-! 4
-люб It;
+! Class 4
+люб It; ! TODO люблю, ставлю
 говор It;
 ^GuessVerb It;
-! 5
-смотр EtI;
+! Class 5
+смотр EtI; ! TODO скорблю; скаж*
 ^GuessVerb EtI;
 молч AtI;
 ^GuessVerb AtI; ! TODO restrict -Sibilant
 ! E-conjugation
-! 1
+! Class 1
 чит AtE;
 ^GuessVerb AtE;
+явл JatE;
+! Class 2
+^GuessVerb JatE;
+треб OvatE;
+^GuessVerb OvatE;
+! Class 3
+верн UtE;
+^GuessVerb UtE;
 
 LEXICON It
 ить+V:0  ConjIt;
@@ -36,7 +44,16 @@ LEXICON AtI
 ать+V:0  ConjAtI;
 
 LEXICON AtE
-ать+V:а  ConjAtE;
+ать+V:а  Conj1E;
+
+LEXICON JatE
+ять+V:я  Conj1E;
+
+LEXICON OvatE
+овать+V:0 Conj2E;
+
+LEXICON UtE
+уть+V:0 Conj3E;
 
 LEXICON ConjIt
 +inf:^ить          Refl;
@@ -62,6 +79,39 @@ LEXICON ConjEtI
 +past+pl:^ели      Refl;
 ConjI;
 
+LEXICON Conj1E
++inf:^ть           Refl;
++past+m+sg:^л      Refl;
++past+f+sg:^ла     Refl;
++past+n+sg:^ло     Refl;
++past+pl:^ли       Refl;
+ConjE;
+
+LEXICON Conj2E
++inf:^овать           Refl;
++past+m+sg:^овал   Refl;
++past+f+sg:^овала  Refl;
++past+n+sg:^овало  Refl;
++past+pl:^овали    Refl;
+0:у ConjE;
+
+LEXICON Conj3E
++inf:^уть          Refl;
+! ю -> у
++pres+1p+sg:^у     Refl;
++pres+2p+sg:^ешь   Refl;
++pres+3p+sg:^ет    Refl;
++pres+1p+pl:^ем    Refl;
++pres+2p+pl:^ете   Refl;
++pres+3p+pl:^ут    Refl;
++imper+2p+sg:^и      #;
++imper+2p+pl:^ите    #;
++past+m+sg:^ул     Refl;
++past+f+sg:^ула    Refl;
++past+n+sg:^уло    Refl;
++past+pl:^ули      Refl;
+0:у ConjE;
+
 LEXICON ConjI
 +pres+1p+sg:^ю     Refl;
 +pres+2p+sg:^ишь   Refl;
@@ -69,21 +119,18 @@ LEXICON ConjI
 +pres+1p+pl:^им    Refl;
 +pres+2p+pl:^ите   Refl;
 +pres+3p+pl:^ят    Refl;
-+imp:^и            #;
++imper+2p+sg:^и       #;
++imper+2p+pl:^ите     #;
 
-LEXICON ConjAtE
-+inf:^ть           Refl;
+LEXICON ConjE
 +pres+1p+sg:^ю     Refl;
 +pres+2p+sg:^ешь   Refl;
 +pres+3p+sg:^ет    Refl;
 +pres+1p+pl:^ем    Refl;
 +pres+2p+pl:^ете   Refl;
 +pres+3p+pl:^ют    Refl;
-+past+m+sg:^л      Refl;
-+past+f+sg:^ла     Refl;
-+past+n+sg:^ло     Refl;
-+past+pl:^ли       Refl;
-+imp:^й            #;
++imper+2p+sg:^й       #;
++imper+2p+pl:^йте     #;
 
 LEXICON Refl
 #;

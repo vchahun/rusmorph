@@ -62,10 +62,10 @@ LEXICON DeclensionHard
 ! neut,sg
 +n+nom+sg:^ое       #;
 +n+acc+sg:^ое       #;
-+m+gen+sg:^ого      #;
-+m+dat+sg:^ому      #;
-+m+ins+sg:^ым       #;
-+m+loc+sg:^ом       #;
++n+gen+sg:^ого      #;
++n+dat+sg:^ому      #;
++n+ins+sg:^ым       #;
++n+loc+sg:^ом       #;
 ! pl
 +nom+pl:^ые         #;
 +acc+pl:^ые         #; ! inanimate

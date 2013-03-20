@@ -1,29 +1,52 @@
 Multichar_Symbols
 +ADV
++comp
 ^GuessAdverb
 
 LEXICON Root
+! adverbs / наречия
 ! from adjectives
-быстро Adv;
+быстр AdjAdv;
+^GuessAdverb AdjAdv;
 
-даже   Adv;
-всегда Adv;
-ещё    Adv;
-уже    Adv;
-затем  Adv;
-потом  Adv;
+даже    Adv;
+всегда  Adv;
+ещё     Adv;
+уже     Adv;
+затем   Adv;
+потом   Adv;
+опять   Adv;
+вместе  Adv;
+слишком Adv;
+сейчас  Adv;
+вообще  Adv;
+сразу   Adv;
+наверху Adv;
+вниз    Adv;
+пока    Adv;
 
-! particles
-да     Adv;
-нет    Adv;
-не     Adv;
-бы     Adv;
-вот    Adv;
-же     Adv;
-и      Adv; ! Он так и делает
-ли     Adv; ! Знаете ли вы
-это    Adv; ! Это не молоко
-^GuessAdverb Adv;
+! particles / частицы
+да      Adv;
+нет     Adv;
+нету    Adv;
+не      Adv;
+ни      Adv;
+бы      Adv;
+вот     Adv;
+же      Adv;
+и       Adv; ! Он так и делает
+ли      Adv; ! Знаете ли вы
+это     Adv; ! Это не молоко
+тоже    Adv;
+
+! + introductory words (вводные слова), interjections (междометия)
 
 LEXICON Adv
 +ADV:0 #;
+
+LEXICON AdjAdv
+о+ADV:0 AdjAdvEnd;
+
+LEXICON AdjAdvEnd
+0:о        #;
++comp:ее #;

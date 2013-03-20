@@ -1,6 +1,7 @@
 Multichar_Symbols
 +CONJ
 
+! conjunctions / союзы
 LEXICON Root
 а         Conj;
 будто     Conj;
@@ -20,11 +21,14 @@ LEXICON Root
 нежели    Conj;
 ни        Conj;
 но        Conj;
+однако    Conj;
 пока      Conj;
 поскольку Conj;
 причём    Conj;
 пусть     Conj;
+также     Conj;
 то        Conj;
+тоже      Conj;
 хотя      Conj;
 чем       Conj;
 что       Conj;

@@ -1,11 +1,13 @@
 Multichar_Symbols
 +PRP
 
+! prepositions / предлоги
 LEXICON Root
 без       Prep;
 благодаря Prep;
 близ      Prep;
 в         Prep;
+во        Prep;
 вдоль     Prep;
 вместо    Prep;
 вне       Prep;

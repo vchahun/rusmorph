@@ -7,50 +7,81 @@ Multichar_Symbols
 
 LEXICON Root
 ! Ia
-завод        MascIa;
-!автомобил[ь]   MascIa;
-!трамва[й]      MascIa;
-!музе[й]        MascIa;
-!алюмини[й]     MascIa;
-^GuessNoun   MascIa;
-! IIb
+! Hard (0)
+завод        MascHardIa;
+^GuessNoun   MascHardIa;
+! Soft (-ь/-?й)
+автомобил    MascSoftIa; ! N-ь A-ь G-я D-ю I-ем L-е / N-и A-и G-ей D-ям I-ями L-ях
+! представитель, уровень, гость, день, уровень, кабель, апрель
+! TODO трамв[ай], случай, край
+! TODO муз[ей]
+! TODO алюмин[ий], кальций, мораторий
+^GuessNoun   MascSoftIa;
+
+! Ib
+! Hard (-о)
 лиц          NeutHardIb;
 письм        NeutHardIb; ! mobile vowel
 ^GuessNoun   NeutHardIb;
-мор          NeutSoftIb;
-здани        NeutSoftIb;
-^GuessNoun   NeutSoftIb;
+! Soft (-е, -ие)
+мор          NeutSoftIbe; ! N-е A-е G-я D-ю I-ем [L-е] / N-я A-я [G-ей] D-ям I-ями L-ях
+^GuessNoun   NeutSoftIbe;
+здан         NeutSoftIbie; ! N-ие A-ие G-ия D-ию I-ием [L-ии] / N-ия A-ия [G-ий] D-иям I-иями L-иях
+^GuessNoun   NeutSoftIbie;
+
 ! II
+! Hard (-а)
 жен          FemHardII;
 ^GuessNoun   FemHardII;
-недел        FemSoftII;
-лини         FemSoftII;
-^GuessNoun   FemSoftII;
+! Soft (-я, -ия)
+недел        FemSoftIIja; ! N-я A-ю G-и [D-е] I-ей [L-е] / N-и A-и [G-ь] D-ям I-ями L-ях
+^GuessNoun   FemSoftIIja;
+лин          FemSoftIIija; ! N-ия A-ию G-ии [D-ии] I-ией [L-ии] / N-ии A-ии [G-ий] D-иям I-иями L-иях
+^GuessNoun   FemSoftIIija;
+
 ! III
 новост       FemIII;
 тетрад       FemIII;
 ^GuessNoun   FemIII;
 
-LEXICON MascIa
-+N+m:0 DeclensionIa;
-! TODO -ь, -й --> DeclensionSoftI
+LEXICON MascHardIa
++N+m:0 DeclensionHardIa;
+
+LEXICON MascSoftIa
+ь+N+m:0 DeclensionSoftIa;
 
 LEXICON NeutHardIb
 о+N+n:0 DeclensionHardIb;
 
-LEXICON NeutSoftIb
+LEXICON NeutSoftIbe
 е+N+n:0 DeclensionSoftIb;
+е+N+n+loc+sg:^е    #;
+е+N+n+gen+pl:^ей   #;
+
+LEXICON NeutSoftIbie
+ие+N+n:и DeclensionSoftIb;
+ие+N+n+loc+sg:^ии   #;
+ие+N+n+gen+pl:^ий   #;
 
 LEXICON FemHardII
 а+N+f:0 DeclensionHardII;
 
-LEXICON FemSoftII
+LEXICON FemSoftIIja
 я+N+f:0 DeclensionSoftII;
+я+N+f+dat+sg:^е    #;
+я+N+f+loc+sg:^е    #;
+я+N+f+gen+pl:^ь    #;
+
+LEXICON FemSoftIIija
+ия+N+f:и DeclensionSoftII;
+ия+N+f+dat+sg:^ии  #;
+ия+N+f+loc+sg:^ии  #;
+ия+N+f+gen+pl:^ий  #;
 
 LEXICON FemIII
 ь+N+f:0 DeclensionIII;
 
-LEXICON DeclensionIa
+LEXICON DeclensionHardIa
 ! sg
 +nom+sg:^     #;
 +acc+sg:^     #; ! inanimate
@@ -60,6 +91,17 @@ DeclensionHardI
 +acc+pl:^ы    #; ! inanimate
 +gen+pl:^ов   #;
 DeclensionHardI;
+
+LEXICON DeclensionSoftIa
+! sg
++nom+sg:^ь    #;
++acc+sg:^ь    #; ! inanimate
++loc+sg:^е    #;
+!pl
++nom+pl:^и    #;
++acc+pl:^и    #; ! inanimate
++gen+pl:^ей   #;
+DeclensionSoftI;
 
 LEXICON DeclensionHardIb
 ! sg
@@ -75,10 +117,11 @@ LEXICON DeclensionSoftIb
 ! sg
 +nom+sg:^е    #;
 +acc+sg:^е    #;
+! special +loc+sg
 ! pl
-+nom+pl^я     #;
++nom+pl:^я     #;
 +acc+pl:^я    #; ! inanimate
-+gen+pl:^ей   #; ! TODO after vowel ^й
+! special +gen+pl
 DeclensionSoftI;
 
 LEXICON DeclensionHardI
@@ -97,7 +140,6 @@ LEXICON DeclensionSoftI
 +gen+sg:^я    #;
 +dat+sg:^ю    #;
 +ins+sg:^ем   #;
-+loc+sg:^е    #;
 !pl
 +dat+pl:^ям   #;
 +ins+pl:^ями  #;
@@ -114,7 +156,7 @@ LEXICON DeclensionHardII
 !pl
 +nom+pl:^ы    #;
 +acc+pl:^ы    #; ! inanimate
-+gen+pl:^а    #;
++gen+pl:^     #;
 +dat+pl:^ам   #;
 +ins+pl:^ами  #;
 +loc+pl:^ах   #;
@@ -124,13 +166,13 @@ LEXICON DeclensionSoftII
 +nom+sg:^я    #;
 +acc+sg:^ю    #;
 +gen+sg:^и    #;
-+dat+sg:^е    #;
+! special +dat+sg
 +ins+sg:^ей   #;
-+loc+sg:^е    #;
+! special +loc+sg
 !pl
 +nom+pl:^и    #;
 +acc+pl:^и    #; ! inanimate
-+gen+pl:^ь    #; ! TODO after и: -ий
+! special +gen+pl
 +dat+pl:^ям   #;
 +ins+pl:^ями  #;
 +loc+pl:^ях   #;
@@ -142,7 +184,7 @@ LEXICON DeclensionIII
 +gen+sg:^и    #;
 +dat+sg:^и    #;
 +ins+sg:^ью   #;
-+loc+sg:^е    #;
++loc+sg:^и    #;
 !pl
 +nom+pl:^и    #;
 +acc+pl:^и    #; ! inanimate
