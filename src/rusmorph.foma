@@ -7,7 +7,7 @@ define Velar г | к | х;
 define OtherCons б | в | д | з | л | м | н | п | р | с | т | ф | ц;
 define Cons Sibilant | Velar | OtherCons;
 define Sign ъ | ь;
-define Alphabet Cons | Vowel | Sign;
+define Alphabet Cons | Vowel | Sign | "-";
 
 ! Load lexicons
 read lexc prepositions.lexc
@@ -27,7 +27,7 @@ substitute defined GuessVerb for "^GuessVerb"
 define VerbLexicon
 define ReflEnding с я -> с ь || Vowel "^" _;
 
-define GuessAdverb Alphabet+ Cons о ["^GuessedRoot^":0];
+define GuessAdverb Alphabet+ Cons ["^GuessedRoot^":0];
 read lexc adverbs.lexc
 substitute defined GuessAdverb for "^GuessAdverb"
 define AdvLexicon
@@ -36,6 +36,8 @@ define GuessAdjective Alphabet+ Cons ["^GuessedRoot^":0];
 read lexc adjectives.lexc
 substitute defined GuessAdjective for "^GuessAdjective"
 define AdjLexicon
+
+! TODO spelling rules
 
 ! Morpheme boundary
 define Cleanup "^" -> 0;

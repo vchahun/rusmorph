@@ -123,6 +123,7 @@ Adverbs are by definition invariable, except for a comparative form.
 Pronoun and numerals have idiosyncratic declensions which need to be modeled independentely.
 
 \subsection{Spelling rules}
+\label{sec:spelling}
 \begin{itemize}
 \item fleeting vowels \textcyr{son/sna, devushka/devushek} (mostly around \textcyr{k, s})
 \item vowels can be soft (\textcyr{ya, e, i, \"e, yu}) or hard (\textcyr{a, \cyrerev, y, o, u}) and certain combinations with consonants are restricted. There are three classes of concerned consonants: velar (\textcyr{g, k, kh}), sibilants (\textcyr{zh, ch, sh, shch}) and the letter \textcyr{s}.
@@ -148,7 +149,19 @@ We will prioritize the first round of development of the analyzer in the followi
 
 \section{System Analysis on Corpus A}
 
+We automatically evaluate our analyzer on corpus A by using the provided manual analyses. Since at this point, our analyzer is mostly a guesser, we define accuracy in a liberal way: a set of analyses is counted as right if any of them matches the gold standard.
+
+The initial accuracy on this corpus is about 60\%, and we perform manual error analysis to correct the mistakes of the analyzer. We discover several errors in the paradigms (e.g.~N+f+gen+pl), extend the guesser to analyze most regular roots, and add new paradigms (e.g.~verbs in \textcyr{ovat\cyrsftsn}) or morphological features (e.g.~adjectival comparative). After these corrections, the accuracy increases to 80\% and most error at this point correspond to non-trivial changes that we reserve for the second round of development.
+
 \section{Lessons Learned and Revised Design}
+
+Having a gold standard allows fast iterative development. We note the following priority features to implement at the end of error analysis:
+\begin{enumerate}
+  \item spelling rules mentioned in \S\ref{sec:spelling}. As predicted, the \textcyr{e}/\textcyr{\"e} confusion is largely observed in the development corpus. Fleeting vowels seem hard to model without labelling each root independently.
+  \item adverbial and adjectival participes of verbs
+  \item short form of adjectives
+\end{enumerate}
+We leave the task of extending the lexicon of stems to the final round of development, as this could be done automatically if the guesser was fully functional.
 
 \section{System Analysis on Corpus B}
 
