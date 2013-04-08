@@ -24,6 +24,14 @@ LEXICON Root
 наверху Adv;
 вниз    Adv;
 пока    Adv;
+чуть-чуть Adv;
+наверняка Adv;
+отнюдь  Adv;
+заранее Adv;
+сзади   Adv;
+лишь    Adv;
+совсем  Adv;
+по-честному Adv; ! TODO? add guesser for по-*(о|е)му
 
 ! particles / частицы
 да      Adv;

@@ -37,7 +37,10 @@ read lexc adjectives.lexc
 substitute defined GuessAdjective for "^GuessAdjective"
 define AdjLexicon
 
-! TODO spelling rules
+define Spelling (ы -> и || [Velar | Sibilant] "^" _)
+            !.o. (о -> е || [Sibilant | с] "^" _) ! only when unstressed
+            .o. (ю -> у || [Velar | Sibilant | с] "^" _)
+            .o. (я -> а || [Velar | Sibilant | с] "^" _);
 
 ! Morpheme boundary
 define Cleanup "^" -> 0;
@@ -48,4 +51,6 @@ regex ((PrpLexicon
         | NounLexicon
         | (VerbLexicon .o. ReflEnding)
         | AdjLexicon
-        | AdvLexicon) .o. Cleanup);
+        | AdvLexicon)
+        .o. Spelling
+        .o. Cleanup);

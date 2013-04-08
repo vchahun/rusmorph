@@ -21,6 +21,7 @@ LEXICON Root
 ^GuessVerb EtI;
 молч AtI;
 ^GuessVerb AtI; ! TODO restrict -Sibilant
+
 ! E-conjugation
 ! Class 1
 чит AtE;
@@ -33,6 +34,9 @@ LEXICON Root
 ! Class 3
 верн UtE;
 ^GuessVerb UtE;
+
+! Irregular
+Irregular;
 
 LEXICON It
 ить+V:0  ConjIt;
@@ -135,3 +139,16 @@ LEXICON ConjE
 LEXICON Refl
 #;
 +refl:^ся         #;
+
+LEXICON Irregular
+быть+V+inf:быть #;
+быть+V+pres+1p+sg:буду #;
+быть+V+pres+2p+sg:будешь #;
+быть+V+pres+3p+sg:будет #;
+быть+V+pres+1p+pl:будем #;
+быть+V+pres+2p+pl:будете #;
+быть+V+pres+3p+pl:будут #;
+быть+V+past+m+sg:был #;
+быть+V+past+f+sg:была #;
+быть+V+past+n+sg:было #;
+быть+V+past+pl:были #;
