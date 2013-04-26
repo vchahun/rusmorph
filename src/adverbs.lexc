@@ -8,6 +8,10 @@ LEXICON Root
 ! adverbs / наречия
 ! from adjectives
 быстр AdjAdv;
+видн  AdjAdv;
+темн  AdjAdv;
+ран   AdjAdv;
+тяжел AdjAdv;
 ^GuessAdverb AdjAdv;
 
 даже    Adv;
@@ -32,6 +36,8 @@ LEXICON Root
 сзади   Adv;
 лишь    Adv;
 совсем  Adv;
+везде   Adv;
+позже   Adv;
 по-честному Adv; ! TODO? add guesser for по-*(о|е)му
 
 ! particles / частицы

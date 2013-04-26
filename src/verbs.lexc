@@ -14,26 +14,203 @@ Multichar_Symbols
 LEXICON Root
 ! I-conjugation
 ! Class 4
-люб It; ! TODO люблю, ставлю
-говор It;
-^GuessVerb It;
+люб         It; ! TODO люблю, ставлю
+говор       It;
+получ       It;
+вер         It;
+помн        It;
+провод      It;
+обрат       It; ! чу
+кур         It;
+прос        It; ! шу
+встрет      It; ! чу
+ход         It; ! жу
+нос         It; ! шу
+готов       It; ! лю
+приход      It; ! жу
+измен       It;
+останов     It; ! лю
+замет       It; ! чу
+реш         It;
+брос        It; ! шу
+вступ       It; ! лю
+езд         It; ! жу
+выход       It; ! жу
+отмет       It; ! чу
+спрос       It; ! шу
+предлож     It;
+поступ      It; ! лю
+состав      It; ! лю
+выраз       It; ! жу
+позвол      It;
+направ      It; ! лю
+служ        It;
+сохран      It;
+плат        It; ! чу
+куп         It; ! лю
+^GuessVerb  It;
 ! Class 5
-смотр EtI; ! TODO скорблю; скаж*
-^GuessVerb EtI;
-молч AtI;
-^GuessVerb AtI; ! TODO restrict -Sibilant
+смотр       EtI; ! TODO скорблю; скаж*
+вид         EtI; ! жу
+хот         EtI; ! чу
+им          EtI;
+увид        EtI; ! жу
+сид         EtI; ! жу
+вис         EtI; ! ?
+гляд        EtI; ! жу
+лет         EtI; ! чу
+усп         EtI;
+захот       EtI; ! чу
+сум         EtI;
+завис       EtI; ! ?
+прив        EtI; ! лю
+полет       EtI; ! чу
+посмотр     EtI;
+ум          EtI;
+од          EtI;
+обид        EtI;
+жал         EtI;
+^GuessVerb  EtI;
+молч        AtI;
+слыш        AtI;
+держ        AtI;
+поддерж     AtI;
+подлеж      AtI;
+леж         AtI;
+куп         AtI; ! лю
+остав       AtI; ! лю
+содерж      AtI;
+дел         AtI;
+сообщ       AtI;
+дыш         AtI;
+хват        AtI;
+лиш         AtI;
+продолж     AtI;
+звуч        AtI;
+улучш       AtI;
+беж         AtI; ! гу
+жд          AtI;
+^GuessVerb  AtI; ! TODO restrict -Sibilant
 
 ! E-conjugation
 ! Class 1
-чит AtE;
-^GuessVerb AtE;
-явл JatE;
-! Class 2
+чит         AtE;
+счит        AtE;
+дел         AtE;
+зн          AtE;
+дум         AtE;
+заним       AtE;
+поним       AtE;
+назыв       AtE;
+призн       AtE;
+получ       AtE;
+собир       AtE;
+начин       AtE;
+игр         AtE;
+сним        AtE;
+сдел        AtE;
+слыш        AtE;
+дав         AtE;
+включ       AtE;
+ожид        AtE;
+показ       AtE;
+собр        AtE;
+приним      AtE;
+прощ        AtE;
+держ        AtE;
+узн         AtE;
+быв         AtE;
+нач         AtE;
+пыт         AtE;
+работ       AtE;
+выбир       AtE;
+созд        AtE;
+отд         AtE;
+спрашив     AtE;
+отмеч       AtE;
+устраив     AtE;
+встреч      AtE;
+выигр       AtE;
+помог       AtE;
+зад         AtE;
+^GuessVerb  AtE;
+явл        JatE;
+мен        JatE;
+подн       JatE;
+потер      JatE;
+составл    JatE;
+зан        JatE;
+примен     JatE;
+представл  JatE;
+объясн     JatE;
+позвол     JatE;
+повтор     JatE;
+выполн     JatE;
+сохран     JatE;
+выдел      JatE;
+осуществл  JatE;
+удар       JatE;
+заявл      JatE;
+распростран JatE;
+раздел     JatE;
+оформл     JatE;
+смен       JatE;
+объедин    JatE;
+гон        JatE;
+размышл    JatE;
 ^GuessVerb JatE;
-треб OvatE;
+! Class 2
+треб      OvatE;
+использ   OvatE;
+образ     OvatE;
+чувств    OvatE;
+формир    OvatE;
+интерес   OvatE;
+потреб    OvatE;
+существ   OvatE;
+действ    OvatE;
+след      OvatE;
+участв    OvatE;
+способств  OvatE;
+отсутств  OvatE;
+соответств OvatE;
+оруд      OvatE;
+присутств OvatE;
+голос     OvatE;
+волн      OvatE;
+гарантир  OvatE;
+инвестир  OvatE;
+почувств  OvatE;
+преслед   OvatE;
+компенсир OvatE;
+публик    OvatE;
+планир    OvatE;
+организ   OvatE;
+регулир   OvatE;
+реализ    OvatE;
+команд    OvatE;
+опублик   OvatE;
+риск      OvatE;
+ориентир  OvatE;
 ^GuessVerb OvatE;
 ! Class 3
-верн UtE;
+верн       UtE;
+тян        UtE;
+рухн       UtE;
+двин       UtE;
+вспыхн     UtE;
+верн       UtE;
+поверн     UtE;
+сун        UtE;
+крикн      UtE;
+покин      UtE;
+прыгн      UtE;
+трон       UtE;
+кин        UtE;
+обман      UtE;
+пахн       UtE;
+заглян     UtE;
+просн      UtE;
 ^GuessVerb UtE;
 
 ! Irregular
