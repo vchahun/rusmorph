@@ -6,29 +6,30 @@ Multichar_Symbols
 +comp
 +brev ! TODO
 ^GuessAdjective
+^DeclHardY^ ^DeclHardO^ ^DeclHardI^ ^DeclSoft^
 
 LEXICON Root
 нов         HardY;
 красн       HardY;
-^GuessAdjective HardY;
+^GuessAdjective HardY; ! TODO restrict not -[Velar | Sibilant]
 больш       HardO;
 ^GuessAdjective HardO;
 лёгк        HardI;
-^GuessAdjective HardI;
+^GuessAdjective HardI; ! TODO restrict -[Velar | Sibilant]
 дальн       Soft;
 ^GuessAdjective Soft; ! TODO restrict -ьн
 
 LEXICON HardY
-ый+ADJ:0 DeclensionHardY;
+ый^DeclHardY^+ADJ:0 DeclensionHardY;
 
 LEXICON HardO
-ой+ADJ:0 DeclensionHardO;
+ой^DeclHardO^+ADJ:0 DeclensionHardO;
 
 LEXICON HardI
-ий+ADJ:0 DeclensionHardI;
+ий^DeclHardI^+ADJ:0 DeclensionHardI;
 
 LEXICON Soft
-ий+ADJ:0 DeclensionSoft;
+ий^DeclSoft^+ADJ:0 DeclensionSoft;
 
 LEXICON DeclensionHardY
 +m+nom+sg:^ый       #;

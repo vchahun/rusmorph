@@ -45,41 +45,41 @@ LEXICON Root
 ^GuessNoun   FemIII;
 
 LEXICON MascHardIa
-+N+m:0 DeclensionHardIa;
+^DeclMascHardIa^+N+m:0 DeclensionHardIa;
 
 LEXICON MascSoftIa
-ь+N+m:0 DeclensionSoftIa;
+ь^DeclMascSoftIa^+N+m:0 DeclensionSoftIa;
 
 LEXICON NeutHardIb
-о+N+n:0 DeclensionHardIb;
+о^DeclNeutHardIb^+N+n:0 DeclensionHardIb;
 
 LEXICON NeutSoftIbe
-е+N+n:0 DeclensionSoftIb;
-е+N+n+loc+sg:^е    #;
-е+N+n+gen+pl:^ей   #;
+е^DeclNeutSoftIbe^+N+n:0 DeclensionSoftIb;
+е^DeclNeutSoftIbe^+N+n+loc+sg:^е    #;
+е^DeclNeutSoftIbe^+N+n+gen+pl:^ей   #;
 
 LEXICON NeutSoftIbie
-ие+N+n:и DeclensionSoftIb;
-ие+N+n+loc+sg:^ии   #;
-ие+N+n+gen+pl:^ий   #;
+ие^DeclNeutSoftIbie^+N+n:и DeclensionSoftIb;
+ие^DeclNeutSoftIbie^+N+n+loc+sg:^ии   #;
+ие^DeclNeutSoftIbie^+N+n+gen+pl:^ий   #;
 
 LEXICON FemHardII
-а+N+f:0 DeclensionHardII;
+а^DeclFemHardII^+N+f:0 DeclensionHardII;
 
 LEXICON FemSoftIIja
-я+N+f:0 DeclensionSoftII;
-я+N+f+dat+sg:^е    #;
-я+N+f+loc+sg:^е    #;
-я+N+f+gen+pl:^ь    #;
+я^DeclFemSoftIIja^+N+f:0 DeclensionSoftII;
+я^DeclFemSoftIIja^+N+f+dat+sg:^е    #;
+я^DeclFemSoftIIja^+N+f+loc+sg:^е    #;
+я^DeclFemSoftIIja^+N+f+gen+pl:^ь    #;
 
 LEXICON FemSoftIIija
-ия+N+f:и DeclensionSoftII;
-ия+N+f+dat+sg:^ии  #;
-ия+N+f+loc+sg:^ии  #;
-ия+N+f+gen+pl:^ий  #;
+ия^DeclFemSoftIIija^+N+f:и DeclensionSoftII;
+ия^DeclFemSoftIIija^+N+f+dat+sg:^ии  #;
+ия^DeclFemSoftIIija^+N+f+loc+sg:^ии  #;
+ия^DeclFemSoftIIija^+N+f+gen+pl:^ий  #;
 
 LEXICON FemIII
-ь+N+f:0 DeclensionIII;
+ь^DeclFemIII^+N+f:0 DeclensionIII;
 
 LEXICON DeclensionHardIa
 ! sg

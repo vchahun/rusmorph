@@ -2,6 +2,7 @@ Multichar_Symbols
 +ADV
 +comp
 ^GuessAdverb
+^AdjAdv^
 
 LEXICON Root
 ! adverbs / наречия
@@ -53,7 +54,7 @@ LEXICON Adv
 +ADV:0 #;
 
 LEXICON AdjAdv
-о+ADV:0 AdjAdvEnd;
+о^AdjAdv^+ADV:0 AdjAdvEnd;
 
 LEXICON AdjAdvEnd
 0:о        #;
