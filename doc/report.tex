@@ -16,10 +16,8 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-\nascomment{one paragraph here summarizing what the paper is about}
+This reports describes our effort to develop a finite-state rule-based morphological analyzer for Russian. The main focus of this project was to encode the rules of the languages more than to provide an extensive list of stems which can easily found in a dictionary. We describe how statistical methods can make this analyzer relatively accurate despite the lack of good lexical information.
 \end{abstract}
-
-\nascomment{brief introduction}
 
 \section{Basic Information about Russian}
 Russian is a Slavic language spoken by 155 million persons primarily in Russia and former Soviet Union republics (Ukraine, Belarus, Kazakhstan, \ldots), making it the 8th most spoken language in the world. Russian is written using a 33-letter alphabet inherited from the Cyrillic alphabet. Its orthography has been standardised progressively until the 1917 reform which is still is use today. From the point of view of morphology, Russian can be categorized as fusional and exhibits phenomena similar to those present in other Indo-European languages: declension of nouns, adjectives, pronouns and numerals, conjugation of verbs.
@@ -147,27 +145,43 @@ We will prioritize the first round of development of the analyzer in the followi
   \item Finally, we will encode the spelling rules described above.
 \end{enumerate}
 
-\section{System Analysis on Corpus A}
+\section{System Analysis on Corpus A and initial revisions}
 
-We automatically evaluate our analyzer on corpus A by using the provided manual analyses. Since at this point, our analyzer is mostly a guesser, we define accuracy in a liberal way: a set of analyses is counted as right if any of them matches the gold standard.
+We automatically evaluate our analyzer on corpus A by using the provided manual analyses. Since at this point, our analyzer is mostly a guesser, we define accuracy in a liberal way: a set of analyses is counted as right if any of them matches the gold standard. Note that since our guesser is very general, only 9 words out of 1000 are not reachable at all.
 
-The initial accuracy on this corpus is about 60\%, and we perform manual error analysis to correct the mistakes of the analyzer. We discover several errors in the paradigms (e.g.~N+f+gen+pl), extend the guesser to analyze most regular roots, and add new paradigms (e.g.~verbs in \textcyr{ovat\cyrsftsn}) or morphological features (e.g.~adjectival comparative). After these corrections, the accuracy increases to 80\% and most error at this point correspond to non-trivial changes that we reserve for the second round of development.
+The initial accuracy on this corpus is about 60\%, and we perform manual error analysis to correct the mistakes of the analyzer. We discover several errors in the paradigms (e.g.~N+f+gen+pl), extend the guesser to analyze most regular roots, and add new paradigms (e.g.~verbs in \textcyr{ovat\cyrsftsn}) or morphological features (e.g.~adjectival comparative). After these corrections, the accuracy increases to 85\% and most errors (158) at this point correspond to non-trivial changes that we reserve for future work.
 
 \section{Lessons Learned and Revised Design}
 
 Having a gold standard allows fast iterative development. We note the following priority features to implement at the end of error analysis:
 \begin{enumerate}
   \item spelling rules mentioned in \S\ref{sec:spelling}. As predicted, the \textcyr{e}/\textcyr{\"e} confusion is largely observed in the development corpus. Fleeting vowels seem hard to model without labelling each root independently.
-  \item adverbial and adjectival participes of verbs
+  \item adverbial and adjectival participles of verbs
   \item short form of adjectives
 \end{enumerate}
 We leave the task of extending the lexicon of stems to the final round of development, as this could be done automatically if the guesser was fully functional.
 
-\section{System Analysis on Corpus B}
+\section{System Analysis on Corpus B and final revisions}
 
-\section{Final Revisions}
+At this second round of development/correction done with the help of Corpus A, we run the analyzer or Corpus B to validate the correctness of our changes. As expected, the accuracy on this portion of the corpus is close to the previous result (199 errors, 13 not analyzed forms for 995 words). We would now like to measure the performance of the analyzer in a stricter way, by penalizing for overgeneration. Unfortunately, at this point, the stem lexicon is almost empty and therefore there are on average 4 analyses per form. To compensate for this, we need to introduce more forms in the base stem lexicon. A convenient way to do this is to do inference on this ambiguous guesser to propose a list of likely stems. We run an unsupervised algorithm \cite{morpholm} to infer a distributions over stems and morphological markers, and choose the most likely analysis to compute the accuracy with respect to the gold standard of lemmas, part-of-speechs as well as the f-measure of the set of morphemes. Then, we inspect the output of the algorithm by starting with the most likely analyses according to the model and add their stems to the model. To make this step easier, we add markers in all parts of the analyzer to be able to trace back what type of inflection was used (for example, whether a noun follows the 1st, the 2nd or the 3rd declension). However, we still quickly verify each proposed stem to ensure we do not introduce too many errors in the analyzer. We also use priority union to prevent the analyzer to also guess the forms that were added. After this step, we run again the inference algorithm and obtain an improvement over the fully unconstrained guesser.
+
+\begin{figure}
+\begin{center}
+    \begin{tabular}{|l | c | c | c|}
+        \hline
+        System & Lemma accuracy & POS accuracy & Morpheme F1\\
+        \hline
+        Random & 58 & 76 & 55 \\ \hline
+  Unsupervised & 70 & 72 & 63 \\ \hline
+        Semi-supervised & 77 & 82 & 69 \\
+        \hline
+    \end{tabular}
+\end{center}
+\caption{Performance of the guesser on the gold standard}
+\end{figure}
 
 \section{Future Work}
+We already listed the main missing parts of the guesser. Preposition, conjunctions can be considered completed. Adverbs would benefit from more lexical enrichment. Nouns and adjectives are mostly covered, except special forms which are mention as TODO points in the source or noted as hard to model before because of long distance dependencies (fleeting vowels and stress patterns). Verbs are missing participles for lack of time (2 + 4 * (3 + 1) * 6 forms to encode for each form), and are most likely currently analyzed as adjecties (which already covers case, number and gender). These limitations, as well as the possibility to further enrich iteratively the list of stems with our unsupervised model, are left for future work.
 
 
 \bibliographystyle{plain}

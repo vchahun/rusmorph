@@ -46,7 +46,7 @@ define Spelling (ы -> и || [Velar | Sibilant] "^" _)
 define Cleanup "^" -> 0;
 
 ! Final composition
-regex ((PrpLexicon
+define Grammar ( (PrpLexicon
         | ConjLexicon
         | NounLexicon
         | (VerbLexicon .o. ReflEnding)
@@ -54,3 +54,7 @@ regex ((PrpLexicon
         | AdvLexicon)
         .o. Spelling
         .o. Cleanup);
+
+define Attested ~$["^GuessedRoot^"] .o. Grammar;
+define Guessed   $["^GuessedRoot^"] .o. Grammar;
+regex Attested .p. Guessed;
